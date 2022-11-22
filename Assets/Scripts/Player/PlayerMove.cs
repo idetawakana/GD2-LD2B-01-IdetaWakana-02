@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cubeSizeHalf = transform.localScale.x / 2f;
+        cubeSizeHalf = 0.5f;
         isRotate = false;
     }
 
