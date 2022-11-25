@@ -19,19 +19,33 @@ public class PlayerColor : MonoBehaviour
     public float up;
     public float down;
 
+    public string downObjName;
+    public PlayerSide downObj;
+
     private Floor floor;
+
+    private Vector3 floorPos;
+
+    public GameObject floorRed;
+    public GameObject floorBlue;
+    public GameObject floorYellow;
 
     private Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject floorObj = GameObject.Find("Floor");
+        GameObject floorObj = GameObject.Find("FloorManager");
         floor = floorObj.GetComponent<Floor>();
+
+        downObjName = "PlayerSide-Y";
     }
 
     // Update is called once per frame
     void Update()
     {
+        GameObject downObject = GameObject.Find(downObjName);
+        downObj = downObject.GetComponent<PlayerSide>();
+
         pos = transform.position;
 
         down = floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)];
@@ -45,6 +59,18 @@ public class PlayerColor : MonoBehaviour
         frontColor = GetColor(front);
         backColor = GetColor(back);
         downColor = GetColor(down);
+
+        if(down == 5)
+        {
+            if(downObj.color == "Red")
+            {
+                floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 1;
+
+                floorPos = new Vector3(pos.x, -1, pos.z);
+                
+                Instantiate(floorRed, floorPos, Quaternion.identity);
+            }
+        }
     }
 
     private string GetColor(float floor)
@@ -68,6 +94,21 @@ public class PlayerColor : MonoBehaviour
         if(floor == 4)
         {
             color = "White";
+        }
+
+        if(floor == 5)
+        {
+            color = "ClearRed";
+        }
+
+        if (floor == 6)
+        {
+            color = "ClearBlue";
+        }
+
+        if (floor == 7)
+        {
+            color = "ClearYellow";
         }
 
         return color;

@@ -17,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject floorObj = GameObject.Find("Floor");
+        GameObject floorObj = GameObject.Find("FloorManager");
         floor = floorObj.GetComponent<Floor>();
 
         cubeSizeHalf = 0.5f;

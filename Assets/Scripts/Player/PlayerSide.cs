@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerSide : MonoBehaviour
 {
+    private PlayerColor playerColor;
     public Material red;
     public Material blue;
     public Material yellow;
@@ -16,6 +17,10 @@ public class PlayerSide : MonoBehaviour
     void Start()
     {
         mesh = GetComponent<MeshRenderer>();
+
+        playerColor = transform.parent.gameObject.GetComponent<PlayerColor>();
+
+        color = "White";
     }
 
     // Update is called once per frame
@@ -44,6 +49,14 @@ public class PlayerSide : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        color = other.tag;
+        if (color == "White" || color == "Red" || color == "Blue" || color == "Yellow")
+        {
+            if (other.tag == "Red" || other.tag == "Blue" || other.tag == "Yellow")
+            {
+                color = other.tag;
+            }
+        }
+
+        playerColor.downObjName = name;
     }
 }
