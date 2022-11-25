@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class PlayerMove : MonoBehaviour
 {
+    private Floor floor;
+    private Vector3 pos;
+
     private float cubeSizeHalf;
     private Vector3 rotatePoint;
     private Vector3 rotateAxis;
@@ -13,6 +17,9 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject floorObj = GameObject.Find("Floor");
+        floor = floorObj.GetComponent<Floor>();
+
         cubeSizeHalf = 0.5f;
         isRotate = false;
     }
@@ -20,27 +27,41 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        pos = transform.position;
+
         if (isRotate)
             return;
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            rotatePoint = transform.position + new Vector3(cubeSizeHalf, -cubeSizeHalf, 0f);
-            rotateAxis = new Vector3(0, 0, -1);
+            if (floor.floor[Mathf.RoundToInt(pos.x) + 1, Mathf.RoundToInt(pos.z)] != 0)
+            {
+                rotatePoint = transform.position + new Vector3(cubeSizeHalf, -cubeSizeHalf, 0f);
+                rotateAxis = new Vector3(0, 0, -1);
+            }
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rotatePoint = transform.position + new Vector3(-cubeSizeHalf, -cubeSizeHalf, 0f);
-            rotateAxis = new Vector3(0, 0, 1);
+            if (floor.floor[Mathf.RoundToInt(pos.x) - 1, Mathf.RoundToInt(pos.z)] != 0)
+            {
+                rotatePoint = transform.position + new Vector3(-cubeSizeHalf, -cubeSizeHalf, 0f);
+                rotateAxis = new Vector3(0, 0, 1);
+            }
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, cubeSizeHalf);
-            rotateAxis = new Vector3(1, 0, 0);
+            if (floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z) + 1] != 0)
+            {
+                rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, cubeSizeHalf);
+                rotateAxis = new Vector3(1, 0, 0);
+            }
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, -cubeSizeHalf);
-            rotateAxis = new Vector3(-1, 0, 0);
+            if (floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z) - 1] != 0)
+            {
+                rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, -cubeSizeHalf);
+                rotateAxis = new Vector3(-1, 0, 0);
+            }
         }
 
 
