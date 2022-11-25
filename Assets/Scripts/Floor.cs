@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Floor : MonoBehaviour
 {
-    public float[,] floor = new float[7, 7]
+    public float[,] floor = new float[,]
     {
         {0,0,0,0,0,0,0},
         {0,0,0,3,0,0,0},
@@ -24,9 +24,9 @@ public class Floor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < floor.GetLength(0); i++)
         {
-            for (int j = 0; j < 7; j++)
+            for (int j = 0; j < floor.GetLength(1); j++)
             {
                 pos = new Vector3(i, -1, j);
                 if (floor[i, j] == 1)

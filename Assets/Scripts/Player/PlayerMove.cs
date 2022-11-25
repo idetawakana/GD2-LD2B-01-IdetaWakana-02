@@ -64,11 +64,9 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-
         if (rotatePoint == Vector3.zero)
             return;
         StartCoroutine(MoveCube());
-
     }
 
     IEnumerator MoveCube()
