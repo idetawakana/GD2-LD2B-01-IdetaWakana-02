@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8253173520222809281}
   - component: {fileID: 8253173520222809282}
   - component: {fileID: 1161376480862893670}
+  - component: {fileID: 3791084727008761961}
   m_Layer: 0
   m_Name: ClearBlue
   m_TagString: ClearBlue
@@ -112,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3791084727008761961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8253173520222809283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7caf4b0d385872e409cc42651a9bb492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blue: {fileID: 2100000, guid: b190b181b8b98a540ab4ced58c26eb45, type: 2}

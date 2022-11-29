@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerSide : MonoBehaviour
 {
     private PlayerColor playerColor;
+
     public Material red;
     public Material blue;
     public Material yellow;
     public Material white;
 
     private MeshRenderer mesh;
+
+    public GameObject floorObj;
 
     public string color;
     // Start is called before the first frame update
@@ -26,12 +29,12 @@ public class PlayerSide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(color == "White")
+        if (color == "White")
         {
             mesh.material = white;
         }
 
-        if(color == "Red")
+        if (color == "Red")
         {
             mesh.material = red;
         }
@@ -56,6 +59,8 @@ public class PlayerSide : MonoBehaviour
                 color = other.tag;
             }
         }
+
+        floorObj = other.gameObject;
 
         playerColor.downObjName = name;
     }

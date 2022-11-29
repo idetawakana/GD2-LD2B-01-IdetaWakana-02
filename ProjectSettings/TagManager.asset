@@ -8,6 +8,15 @@ TagManager:
   - Blue
   - Yellow
   - White
+  - X
+  - X_
+  - Y
+  - Y_
+  - Z
+  - Z_
+  - ClearRed
+  - ClearBlue
+  - ClearYellow
   layers:
   - Default
   - TransparentFX

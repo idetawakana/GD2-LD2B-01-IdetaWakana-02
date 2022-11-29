@@ -24,11 +24,11 @@ public class PlayerColor : MonoBehaviour
 
     private Floor floor;
 
-    private Vector3 floorPos;
+    public Material red;
+    public Material blue;
+    public Material yellow;
 
-    public GameObject floorRed;
-    public GameObject floorBlue;
-    public GameObject floorYellow;
+    private MeshRenderer mesh;
 
     private Vector3 pos;
     // Start is called before the first frame update
@@ -65,10 +65,22 @@ public class PlayerColor : MonoBehaviour
             if(downObj.color == "Red")
             {
                 floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 1;
+            }
+        }
 
-                floorPos = new Vector3(pos.x, -1, pos.z);
-                
-                Instantiate(floorRed, floorPos, Quaternion.identity);
+        if(down == 6)
+        {
+            if (downObj.color == "Blue")
+            {
+                floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 2;
+            }
+        }
+
+        if (down == 7)
+        {
+            if (downObj.color == "Yellow")
+            {
+                floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 3;
             }
         }
     }
