@@ -60,29 +60,29 @@ public class PlayerColor : MonoBehaviour
         backColor = GetColor(back);
         downColor = GetColor(down);
 
-        if(down == 5)
-        {
-            if(downObj.color == "Red")
-            {
-                floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 1;
-            }
-        }
+        //if(down == 5)
+        //{
+        //    if(downObj.color == "Red")
+        //    {
+        //        floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 1;
+        //    }
+        //}
 
-        if(down == 6)
-        {
-            if (downObj.color == "Blue")
-            {
-                floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 2;
-            }
-        }
+        //if(down == 6)
+        //{
+        //    if (downObj.color == "Blue")
+        //    {
+        //        floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 2;
+        //    }
+        //}
 
-        if (down == 7)
-        {
-            if (downObj.color == "Yellow")
-            {
-                floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 3;
-            }
-        }
+        //if (down == 7)
+        //{
+        //    if (downObj.color == "Yellow")
+        //    {
+        //        floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 3;
+        //    }
+        //}
     }
 
     private string GetColor(float floor)
