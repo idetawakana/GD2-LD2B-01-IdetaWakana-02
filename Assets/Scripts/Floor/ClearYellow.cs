@@ -42,6 +42,7 @@ public class ClearYellow : MonoBehaviour
             mesh.material = yellow;
 
             floorCom.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 3;
+            tag = "Yellow";
         }
     }
 }

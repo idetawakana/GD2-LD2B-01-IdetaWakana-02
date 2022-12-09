@@ -7,6 +7,8 @@ public class Floor : MonoBehaviour
 {
     public Stage stage;
 
+    public GuardManager guard;
+
     public float[,] floor;
 
     public GameObject floorRed;
@@ -18,61 +20,69 @@ public class Floor : MonoBehaviour
     public GameObject clearYellow;
 
     public Vector3 pos;
+
+    public float cameraX;
+
+    public float cameraZ;
     // Start is called before the first frame update
     void Start()
     {
         stage = GetComponent<Stage>();
-        if (SceneManager.GetActiveScene().name == "SampleScene")
+
+        GameObject guardObj = GameObject.Find("GuardManager");
+        guard = guardObj.GetComponent<GuardManager>();
+
+        if (guard.stageLevel == 0)
         {
             floor = stage.stage;
         }
 
-        if (SceneManager.GetActiveScene().name == "Stage1")
+        if (guard.stageLevel == 1)
         {
             floor = stage.stage1;
         }
 
-        if (SceneManager.GetActiveScene().name == "Stage2")
+        if (guard.stageLevel == 2)
         {
             floor = stage.stage2;
         }
 
-        if (SceneManager.GetActiveScene().name == "Stage3")
+        if (guard.stageLevel == 3)
         {
             floor = stage.stage3;
         }
 
-        if (SceneManager.GetActiveScene().name == "Stage4")
+        if (guard.stageLevel == 4)
         {
             floor = stage.stage4;
         }
 
-        if (SceneManager.GetActiveScene().name == "Stage5")
+        if (guard.stageLevel == 5)
         {
             floor = stage.stage5;
         }
 
-        if (SceneManager.GetActiveScene().name == "Stage6")
+        if (guard.stageLevel == 6)
         {
             floor = stage.stage6;
         }
 
-        if (SceneManager.GetActiveScene().name == "Stage7")
+        if (guard.stageLevel == 7)
         {
             floor = stage.stage7;
         }
 
-        if (SceneManager.GetActiveScene().name == "Stage8")
+        if (guard.stageLevel == 8)
         {
             floor = stage.stage8;
         }
 
-        if (SceneManager.GetActiveScene().name == "Stage9")
+        if (guard.stageLevel == 9)
         {
             floor = stage.stage9;
         }
 
-        if (SceneManager.GetActiveScene().name == "Stage10")
+        if (guard.stageLevel == 10)
         {
             floor = stage.stage10;
         }
@@ -118,6 +128,9 @@ public class Floor : MonoBehaviour
                 }
             }
         }
+
+        cameraX = floor.GetLength(0) / 2;
+        cameraZ = floor.GetLength(1) / 2;
     }
 
     // Update is called once per frame

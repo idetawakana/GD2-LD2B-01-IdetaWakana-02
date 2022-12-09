@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Floor floor;
+
+    private GuardManager guard;
+
+    private Stage stage;
+
     private Vector3 pos;
 
     private float cubeSizeHalf;
@@ -19,8 +24,70 @@ public class PlayerMove : MonoBehaviour
         GameObject floorObj = GameObject.Find("FloorManager");
         floor = floorObj.GetComponent<Floor>();
 
+        GameObject guardObj = GameObject.Find("GuardManager");
+        guard = guardObj.GetComponent<GuardManager>();
+
+        stage = floorObj.GetComponent<Stage>();
+
         cubeSizeHalf = 0.5f;
         isRotate = false;
+
+        if (guard.stageLevel == 0)
+        {
+            pos = stage.pos0;
+        }
+
+        if (guard.stageLevel == 1)
+        {
+            pos = stage.pos1;
+        }
+
+        if (guard.stageLevel == 2)
+        {
+            pos = stage.pos2;
+        }
+
+        if (guard.stageLevel == 3)
+        {
+            pos = stage.pos3;
+        }
+
+        if (guard.stageLevel == 4)
+        {
+            pos = stage.pos4;
+        }
+
+        if (guard.stageLevel == 5)
+        {
+            pos = stage.pos5;
+        }
+
+        if (guard.stageLevel == 6)
+        {
+            pos = stage.pos6;
+        }
+
+        if (guard.stageLevel == 7)
+        {
+            pos = stage.pos7;
+        }
+
+        if (guard.stageLevel == 8)
+        {
+            pos = stage.pos8;
+        }
+
+        if (guard.stageLevel == 9)
+        {
+            pos = stage.pos9;
+        }
+
+        if (guard.stageLevel == 10)
+        {
+            pos = stage.pos10;
+        }
+
+        transform.position = pos;
     }
 
     // Update is called once per frame

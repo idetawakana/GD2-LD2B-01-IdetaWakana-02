@@ -42,6 +42,7 @@ public class ClearRed : MonoBehaviour
             mesh.material = red;
 
             floorCom.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)] = 1;
+            tag = "Red";
         }
     }
 }
