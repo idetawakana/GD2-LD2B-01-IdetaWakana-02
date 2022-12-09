@@ -1,19 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Floor : MonoBehaviour
 {
-    public float[,] floor = new float[,]
-    {
-        {0,0,0,0,0,0,0},
-        {0,0,0,2,0,0,0},
-        {0,0,5,4,0,0,0},
-        {0,4,1,4,3,4,0},
-        {0,0,6,4,0,0,0},
-        {0,0,0,7,0,0,0},
-        {0,0,0,0,0,0,0}
-    };
+    public Stage stage;
+
+    public float[,] floor;
 
     public GameObject floorRed;
     public GameObject floorBlue;
@@ -27,6 +21,62 @@ public class Floor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stage = GetComponent<Stage>();
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            floor = stage.stage;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage1")
+        {
+            floor = stage.stage1;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage2")
+        {
+            floor = stage.stage2;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage3")
+        {
+            floor = stage.stage3;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage4")
+        {
+            floor = stage.stage4;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage5")
+        {
+            floor = stage.stage5;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage6")
+        {
+            floor = stage.stage6;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage7")
+        {
+            floor = stage.stage7;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage8")
+        {
+            floor = stage.stage8;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage9")
+        {
+            floor = stage.stage9;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage10")
+        {
+            floor = stage.stage10;
+        }
+
         for (int i = 0; i < floor.GetLength(0); i++)
         {
             for (int j = 0; j < floor.GetLength(1); j++)
