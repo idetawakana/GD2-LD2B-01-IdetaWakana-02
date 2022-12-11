@@ -222,7 +222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -502.75, y: 279.58}
+  m_AnchoredPosition: {x: -372, y: 264}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &340556597
@@ -252,7 +252,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 60
-    m_Alignment: 4
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -798,11 +798,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4150735233398495242, guid: 8510ef1d0119ee246b2edc330128bb14, type: 3}
       propertyPath: pos3.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4150735233398495242, guid: 8510ef1d0119ee246b2edc330128bb14, type: 3}
       propertyPath: pos3.z
-      value: 6
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150735233398495242, guid: 8510ef1d0119ee246b2edc330128bb14, type: 3}
+      propertyPath: pos4.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150735233398495242, guid: 8510ef1d0119ee246b2edc330128bb14, type: 3}
+      propertyPath: pos4.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150735233398495242, guid: 8510ef1d0119ee246b2edc330128bb14, type: 3}
+      propertyPath: pos5.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150735233398495242, guid: 8510ef1d0119ee246b2edc330128bb14, type: 3}
+      propertyPath: pos5.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150735233398495242, guid: 8510ef1d0119ee246b2edc330128bb14, type: 3}
+      propertyPath: pos6.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150735233398495242, guid: 8510ef1d0119ee246b2edc330128bb14, type: 3}
+      propertyPath: pos6.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4150735233398495242, guid: 8510ef1d0119ee246b2edc330128bb14, type: 3}
       propertyPath: pos10.x
@@ -847,7 +871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46addb931204d24f91035a54f787a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageLevel: 1
+  stageLevel: 6
 --- !u!4 &1655348832
 Transform:
   m_ObjectHideFlags: 0
