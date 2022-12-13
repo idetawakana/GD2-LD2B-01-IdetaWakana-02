@@ -9,6 +9,8 @@ public class Floor : MonoBehaviour
 
     public SelectManager select;
 
+    public CameraPos cameraPos;
+
     public float[,] floor;
 
     public GameObject floorRed;
@@ -33,6 +35,9 @@ public class Floor : MonoBehaviour
 
         GameObject selectObj = GameObject.Find("SelectManager");
         select = selectObj.GetComponent<SelectManager>();
+
+        GameObject cameraObj = GameObject.Find("Main Camera");
+        cameraPos = cameraObj.GetComponent<CameraPos>();
     }
 
     // Update is called once per frame
@@ -139,6 +144,8 @@ public class Floor : MonoBehaviour
 
             cameraX = floor.GetLength(0) / 2;
             cameraZ = floor.GetLength(1) / 2;
+
+            cameraPos.SetCamera(cameraX);
 
             isBuild = true;
         }

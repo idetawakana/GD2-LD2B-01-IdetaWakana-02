@@ -23,16 +23,25 @@ public class CameraPos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isChange == false)
-        {
-            pos = transform.position;
+        //if (isChange == false)
+        //{
+        //    pos = transform.position;
 
-            pos.x = floor.cameraX;
-            //pos.z = floor.cameraZ;
+        //    pos.x = floor.cameraX;
+        //    //pos.z = floor.cameraZ;
 
-            transform.position = pos;
+        //    transform.position = pos;
 
-            isChange = true;
-        }
+        //    isChange = true;
+        //}
+    }
+
+    public void SetCamera(float x)
+    {
+        pos = transform.position;
+
+        pos.x = x;
+
+        transform.position = pos;
     }
 }
