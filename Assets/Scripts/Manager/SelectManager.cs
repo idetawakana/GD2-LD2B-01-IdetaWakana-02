@@ -5,44 +5,92 @@ using UnityEngine.SceneManagement;
 
 public class SelectManager : MonoBehaviour
 {
-    public static int stageLevel;
+    private SoundManager soundManager;
+
+    public int stageLevel;
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         stageLevel = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (stageLevel == 7)
-            {
-                stageLevel = 1;
-            }
-            else
-            {
-                stageLevel++;
-            }
-        }
+        GameObject soundObj = GameObject.Find("SoundManager");
+        soundManager = soundObj.GetComponent<SoundManager>();
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (SceneManager.GetActiveScene().name == "StageSelect")
         {
-            if (stageLevel == 1)
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                soundManager.PlaySelectSE();
+
+                if (stageLevel == 7)
+                {
+                    stageLevel = 1;
+                }
+                else
+                {
+                    stageLevel++;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                soundManager.PlaySelectSE();
+
+                if (stageLevel == 1)
+                {
+                    stageLevel = 7;
+                }
+                else
+                {
+                    stageLevel--;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                soundManager.PlaySelectSE();
+
+                if (stageLevel <= 4)
+                {
+                    stageLevel += 4;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                soundManager.PlaySelectSE();
+
+                if (stageLevel >= 5)
+                {
+                    stageLevel -= 4;
+                }
+            }
+
+            if(stageLevel > 7)
             {
                 stageLevel = 7;
             }
-            else
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                stageLevel--;
+                ChangeScene("Stage");
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ChangeScene("Stage");
-        }
+        //if (SceneManager.GetActiveScene().name == "Stage")
+        //{
+        //    if(stageLevel == 8)
+        //    {
+        //        ChangeScene("StageSelect");
+        //    }
+        //}
+
     }
 
     public void ChangeScene(string nextScene)

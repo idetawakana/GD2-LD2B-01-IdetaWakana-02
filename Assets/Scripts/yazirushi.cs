@@ -19,43 +19,43 @@ public class yazirushi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SelectManager.stageLevel == 1)
+        if(selectManager.stageLevel == 1)
         {
             pos.x = -500;
             pos.y = 0;
         }
 
-        if (SelectManager.stageLevel == 2)
+        if (selectManager.stageLevel == 2)
         {
             pos.x = -175;
             pos.y = 0;
         }
 
-        if (SelectManager.stageLevel == 3)
+        if (selectManager.stageLevel == 3)
         {
             pos.x = 175;
             pos.y = 0;
         }
 
-        if (SelectManager.stageLevel == 4)
+        if (selectManager.stageLevel == 4)
         {
             pos.x = 500;
             pos.y = 0;
         }
 
-        if (SelectManager.stageLevel == 5)
+        if (selectManager.stageLevel == 5)
         {
             pos.x = -500;
             pos.y = -220;
         }
 
-        if (SelectManager.stageLevel == 6)
+        if (selectManager.stageLevel == 6)
         {
             pos.x = -175;
             pos.y = -220;
         }
 
-        if (SelectManager.stageLevel == 7)
+        if (selectManager.stageLevel == 7)
         {
             pos.x = 175;
             pos.y = -220;

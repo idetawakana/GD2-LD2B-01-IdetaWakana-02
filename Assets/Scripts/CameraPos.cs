@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraPos : MonoBehaviour
 {
-    private GuardManager guard;
+    private SelectManager select;
     private Floor floor;
 
     public Vector3 pos;
@@ -13,8 +13,8 @@ public class CameraPos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject guardObj = GameObject.Find("GuardManager");
-        guard = guardObj.GetComponent<GuardManager>();
+        GameObject selectObj = GameObject.Find("SelectManager");
+        select = selectObj.GetComponent<SelectManager>();
 
         GameObject floorObj = GameObject.Find("FloorManager");
         floor = floorObj.GetComponent<Floor>();

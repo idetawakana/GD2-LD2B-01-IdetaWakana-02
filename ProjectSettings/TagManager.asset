@@ -17,6 +17,7 @@ TagManager:
   - ClearRed
   - ClearBlue
   - ClearYellow
+  - Fade
   layers:
   - Default
   - TransparentFX

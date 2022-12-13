@@ -46,18 +46,20 @@ public class PlayerColor : MonoBehaviour
         downObj = downObject.GetComponent<PlayerSide>();
 
         pos = transform.position;
+        if (floor.floor != null)
+        {
+            down = floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)];
+            right = floor.floor[Mathf.RoundToInt(pos.x) + 1, Mathf.RoundToInt(pos.z)];
+            left = floor.floor[Mathf.RoundToInt(pos.x) - 1, Mathf.RoundToInt(pos.z)];
+            front = floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z) + 1];
+            back = floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z) - 1];
 
-        down = floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z)];
-        right = floor.floor[Mathf.RoundToInt(pos.x) + 1, Mathf.RoundToInt(pos.z)];
-        left = floor.floor[Mathf.RoundToInt(pos.x) - 1, Mathf.RoundToInt(pos.z)];
-        front = floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z) + 1];
-        back = floor.floor[Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z) - 1];
-
-        rightColor = GetColor(right);
-        leftColor = GetColor(left);
-        frontColor = GetColor(front);
-        backColor = GetColor(back);
-        downColor = GetColor(down);
+            rightColor = GetColor(right);
+            leftColor = GetColor(left);
+            frontColor = GetColor(front);
+            backColor = GetColor(back);
+            downColor = GetColor(down);
+        }
 
         //if(down == 5)
         //{

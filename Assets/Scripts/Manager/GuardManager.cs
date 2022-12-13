@@ -9,7 +9,7 @@ public class GuardManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        stageLevel = SelectManager.stageLevel;
+        //stageLevel = SelectManager.stageLevel;
     }
 
     // Update is called once per frame

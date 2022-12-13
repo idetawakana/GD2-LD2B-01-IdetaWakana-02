@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     private Floor floorCom;
 
-    private GuardManager guard;
+    private SelectManager select;
+
+    private SoundManager soundManager;
 
     public int clearCount;
     public bool isClear;
@@ -18,11 +20,17 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.SetResolution(1366, 768, false);
+        Application.targetFrameRate = 60;
+
         GameObject floorObj = GameObject.Find("FloorManager");
         floorCom = floorObj.GetComponent<Floor>();
 
-        GameObject guardObj = GameObject.Find("GuardManager");
-        guard = guardObj.GetComponent<GuardManager>();
+        GameObject selectObj = GameObject.Find("SelectManager");
+        select = selectObj.GetComponent<SelectManager>();
+
+        GameObject soundObj = GameObject.Find("SoundManager");
+        soundManager = soundObj.GetComponent<SoundManager>();
 
         clearCount = 0;
     }
@@ -41,9 +49,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (clearCount == 0)
+        if (clearCount == 0 && isClear == false)
         {
             isClear = true;
+            soundManager.PlayClearSE();
         }
         clearCount = 0;
 
@@ -55,14 +64,26 @@ public class GameManager : MonoBehaviour
                 clearTimer -= Time.deltaTime;
             }else if(clearTimer < 1)
             {
-                guard.stageLevel++;
-                SceneReset();
+                select.stageLevel++;
+                if (select.stageLevel <= 7)
+                {
+                    SceneReset();
+                }
+                else
+                {
+                    ChangeScene("StageSelect");
+                }
             }
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneReset();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ChangeScene("StageSelect");
         }
     }
 

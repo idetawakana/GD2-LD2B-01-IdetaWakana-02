@@ -6,9 +6,11 @@ public class PlayerMove : MonoBehaviour
 {
     private Floor floor;
 
-    private GuardManager guard;
+    private SelectManager select;
 
     private Stage stage;
+
+    private SoundManager soundManager;
 
     private Vector3 pos;
 
@@ -24,65 +26,68 @@ public class PlayerMove : MonoBehaviour
         GameObject floorObj = GameObject.Find("FloorManager");
         floor = floorObj.GetComponent<Floor>();
 
-        GameObject guardObj = GameObject.Find("GuardManager");
-        guard = guardObj.GetComponent<GuardManager>();
+        GameObject selectObj = GameObject.Find("SelectManager");
+        select = selectObj.GetComponent<SelectManager>();
 
         stage = floorObj.GetComponent<Stage>();
+
+        GameObject soundObj = GameObject.Find("SoundManager");
+        soundManager = soundObj.GetComponent<SoundManager>();
 
         cubeSizeHalf = 0.5f;
         isRotate = false;
 
-        if (guard.stageLevel == 0)
+        if (select.stageLevel == 0)
         {
             pos = stage.pos0;
         }
 
-        if (guard.stageLevel == 1)
+        if (select.stageLevel == 1)
         {
             pos = stage.pos1;
         }
 
-        if (guard.stageLevel == 2)
+        if (select.stageLevel == 2)
         {
             pos = stage.pos2;
         }
 
-        if (guard.stageLevel == 3)
+        if (select.stageLevel == 3)
         {
             pos = stage.pos3;
         }
 
-        if (guard.stageLevel == 4)
+        if (select.stageLevel == 4)
         {
             pos = stage.pos4;
         }
 
-        if (guard.stageLevel == 5)
+        if (select.stageLevel == 5)
         {
             pos = stage.pos5;
         }
 
-        if (guard.stageLevel == 6)
+        if (select.stageLevel == 6)
         {
             pos = stage.pos6;
         }
 
-        if (guard.stageLevel == 7)
+        if (select.stageLevel == 7)
         {
             pos = stage.pos7;
         }
 
-        if (guard.stageLevel == 8)
+        if (select.stageLevel == 8)
         {
             pos = stage.pos8;
         }
 
-        if (guard.stageLevel == 9)
+        if (select.stageLevel == 9)
         {
             pos = stage.pos9;
         }
 
-        if (guard.stageLevel == 10)
+        if (select.stageLevel == 10)
         {
             pos = stage.pos10;
         }
@@ -139,6 +144,8 @@ public class PlayerMove : MonoBehaviour
     {
         //âÒì]íÜÇÃÉtÉâÉOÇóßÇƒÇÈ
         isRotate = true;
+
+        soundManager.PlayMoveSE();
 
         //âÒì]èàóù
         float sumAngle = 0f; //angleÇÃçáåvÇï€ë∂

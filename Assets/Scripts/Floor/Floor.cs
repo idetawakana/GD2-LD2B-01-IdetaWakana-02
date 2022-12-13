@@ -7,7 +7,7 @@ public class Floor : MonoBehaviour
 {
     public Stage stage;
 
-    public GuardManager guard;
+    public SelectManager select;
 
     public float[,] floor;
 
@@ -31,8 +31,8 @@ public class Floor : MonoBehaviour
     {
         stage = GetComponent<Stage>();
 
-        GameObject guardObj = GameObject.Find("GuardManager");
-        guard = guardObj.GetComponent<GuardManager>();
+        GameObject selectObj = GameObject.Find("SelectManager");
+        select = selectObj.GetComponent<SelectManager>();
     }
 
     // Update is called once per frame
@@ -40,57 +40,57 @@ public class Floor : MonoBehaviour
     {
         if (isBuild == false)
         {
-            if (guard.stageLevel == 0)
+            if (select.stageLevel == 0)
             {
                 floor = stage.stage;
             }
 
-            if (guard.stageLevel == 1)
+            if (select.stageLevel == 1)
             {
                 floor = stage.stage1;
             }
 
-            if (guard.stageLevel == 2)
+            if (select.stageLevel == 2)
             {
                 floor = stage.stage2;
             }
 
-            if (guard.stageLevel == 3)
+            if (select.stageLevel == 3)
             {
                 floor = stage.stage3;
             }
 
-            if (guard.stageLevel == 4)
+            if (select.stageLevel == 4)
             {
                 floor = stage.stage4;
             }
 
-            if (guard.stageLevel == 5)
+            if (select.stageLevel == 5)
             {
                 floor = stage.stage5;
             }
 
-            if (guard.stageLevel == 6)
+            if (select.stageLevel == 6)
             {
                 floor = stage.stage6;
             }
 
-            if (guard.stageLevel == 7)
+            if (select.stageLevel == 7)
             {
                 floor = stage.stage7;
             }
 
-            if (guard.stageLevel == 8)
+            if (select.stageLevel == 8)
             {
                 floor = stage.stage8;
             }
 
-            if (guard.stageLevel == 9)
+            if (select.stageLevel == 9)
             {
                 floor = stage.stage9;
             }
 
-            if (guard.stageLevel == 10)
+            if (select.stageLevel == 10)
             {
                 floor = stage.stage10;
             }
